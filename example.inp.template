@@ -1,0 +1,34 @@
+*Heading
+Synthetic axial bar for scalar calibration. Consistent units: N, mm, MPa.
+*Part, name=Bar
+*Node
+1, 0., 0., 0.
+2, 10., 0., 0.
+*Element, type=T3D2, elset=BarElements
+1, 1, 2
+*Solid Section, elset=BarElements, material=ExampleMaterial
+1.
+*End Part
+*Assembly, name=Assembly
+*Instance, name=Bar-1, part=Bar
+*End Instance
+*Nset, nset=Fixed, instance=Bar-1
+1,
+*Nset, nset=Loaded, instance=Bar-1
+2,
+*End Assembly
+*Material, name=ExampleMaterial
+*Elastic
+{{YOUNGS_MODULUS}}, 0.3
+*Boundary
+Fixed, 1, 3, 0.
+Loaded, 2, 3, 0.
+*Step, name=LoadStep, nlgeom=NO
+*Static
+1., 1.
+*Cload
+Loaded, 1, 1.
+*Output, field, frequency=1
+*Node Output
+U
+*End Step
