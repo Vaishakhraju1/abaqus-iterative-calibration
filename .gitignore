@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+runs/
+*.odb
+*.cae
+*.sim
+*.lck
+*.log
+*.dat
+*.msg
+*.sta
+*.prt
+*.com
+*.jnl
+*.rpy
+abaqus.rpy.*
